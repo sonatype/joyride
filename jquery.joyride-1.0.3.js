@@ -98,7 +98,7 @@
         ($(tipContent[count]).data('options') || ':').split(';')
           .map(function (s) {
             var p = s.split(':');
-            if (p.length == 2) opt[p[0].trim()] = p[1].trim();
+            if (p.length == 2) opt[$.trim(p[0])] = $.trim(p[1]);
           });
         options = $.extend(options, opt); // Update options and settings
         settings = $.extend(settings, opt);
