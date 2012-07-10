@@ -153,7 +153,7 @@
 
           if (settings.tipLocation == "bottom") {
             currentTip.offset({top: (currentTipPosition.top + currentParentHeight + nubHeight),
-              left: (currentTipPosition.left - bodyOffset.left)});
+              left: currentTipPosition.left});
             currentTip.children('.joyride-nub').addClass('top').removeClass('bottom');
           } else if (settings.tipLocation == "top") {
             if (currentTipHeight >= currentTipPosition.top) {
