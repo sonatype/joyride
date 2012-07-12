@@ -250,7 +250,7 @@
       } else {
        showNextTip();
       }
-      var endTip = function(e, interval_id, cookie, self) {
+      var endTip = function(e, interval_id, cookie, cancelled, self) {
         e.preventDefault();
         clearInterval(interval_id);
         if (cookie) {
@@ -258,18 +258,18 @@
         }
         $(self).parent().hide();
         if (settings.postRideCallback != $.noop) {
-          settings.postRideCallback();
+          settings.postRideCallback(count, cancelled);
         }
       }
       $('.joyride-close-tip').click(function(e) {
-        endTip(e, interval_id, settings.cookieMonster, this);
+        endTip(e, interval_id, settings.cookieMonster, true, this);
       });
 
       // When the next button is clicked, show the next tip, only when cookie isn't present
         $('.joyride-next-tip').click(function(e) {
           e.preventDefault();
           if (count >= tipContent.length) {
-            endTip(e, interval_id, settings.cookieMonster, this);
+            endTip(e, interval_id, settings.cookieMonster, false, this);
           }
           if (settings.timer > 0 && settings.startTimerOnClick) {
             showNextTip();
