@@ -151,18 +151,24 @@
           //   Tip Location
           // ++++++++++++++++++
 
+          var currentTipWidth = Math.ceil($('.joyride-tip-guide').outerWidth()), tipAlignment = 0;
+          if (currentTipPosition != null && currentTipPosition.left+currentTipWidth*1.2 > $(window).innerWidth()) {
+            tipAlignment = currentTipWidth - 3 * parseInt(currentTip.find('.joyride-nub').css('left'));
+            currentTip.addClass('right');
+          }
+
           if (settings.tipLocation == "bottom") {
             currentTip.offset({top: (currentTipPosition.top + currentParentHeight + nubHeight),
-              left: currentTipPosition.left});
+              left: currentTipPosition.left - tipAlignment});
             currentTip.children('.joyride-nub').addClass('top').removeClass('bottom');
           } else if (settings.tipLocation == "top") {
             if (currentTipHeight >= currentTipPosition.top) {
               currentTip.offset({top: ((currentTipPosition.top + currentParentHeight + nubHeight) - bodyOffset.top),
-                left: (currentTipPosition.left - bodyOffset.left)});
+                left: (currentTipPosition.left - bodyOffset.left - tipAlignment)});
               currentTip.children('.joyride-nub').addClass('top').removeClass('bottom');
             } else {
               currentTip.offset({top: ((currentTipPosition.top) - (currentTipHeight + bodyOffset.top + nubHeight)),
-                left: (currentTipPosition.left - bodyOffset.left)});
+                left: (currentTipPosition.left - bodyOffset.left - tipAlignment)});
               currentTip.children('.joyride-nub').addClass('bottom').removeClass('top');
             }
           }
