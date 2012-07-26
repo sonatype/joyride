@@ -152,7 +152,7 @@
           // ++++++++++++++++++
 
           var currentTipWidth = Math.ceil($('.joyride-tip-guide').outerWidth()), tipAlignment = 0;
-          if (currentTipPosition != null && currentTipPosition.left+currentTipWidth*1.2 > $(window).innerWidth()) {
+          if (currentTipPosition.left+currentTipWidth*1.2 > $(window).innerWidth()) {
             tipAlignment = currentTipWidth - 3 * parseInt(currentTip.find('.joyride-nub').css('left'));
             currentTip.addClass('right');
           }
@@ -228,6 +228,9 @@
           currentParentHeight = $('#' + parentElementID).outerHeight(),
           currentTipHeight = $('#joyRidePopup' + prevCount).outerHeight(),
           nubHeight = Math.ceil($('.joyride-nub').outerHeight() / 2);
+          if (currentTipPosition === null) {
+            return;
+          }
           if (settings.tipLocation == "bottom") {
             $('#joyRidePopup' + prevCount).offset({top: (currentTipPosition.top + currentParentHeight + nubHeight),
               left: currentTipPosition.left});
