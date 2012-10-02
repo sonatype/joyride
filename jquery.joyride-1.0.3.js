@@ -107,7 +107,7 @@
           count++;
           skipCount++;
           ((tipContent.length - 1) > prevCount) ? prevCount++ : prevCount;
-          parentElementID = $(tipContent[count]).data('id'),
+          parentElementID = $(tipContent[count]).data('id');
           parentElement = $('#' + parentElementID);
 
           if ($(tipContent).length < count)
