@@ -1,4 +1,4 @@
-/*
+/** @license
  * jQuery Joyride Plugin 1.0.3
  * www.ZURB.com/playground
  * Copyright 2011, ZURB
@@ -294,7 +294,7 @@
     });
   };
 
-
+/** @license
   // +++++++++++++++++++++++++++++
   //   jQuery Cookie plugin
   // +++++++++++++++++++++++++++++
@@ -303,6 +303,7 @@
   // Dual licensed under the MIT and GPL licenses:
   // http://www.opensource.org/licenses/mit-license.php
   // http://www.gnu.org/licenses/gpl.html
+*/
   jQuery.cookie = function (key, value, options) {
 
       // key and at least value given, set cookie...
